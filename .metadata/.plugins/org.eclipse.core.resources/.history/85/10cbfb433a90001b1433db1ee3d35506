@@ -1,8 +1,0 @@
-package com.admin.order.db;
-
-public class Snippet {
-	public static void main(String[] args) {
-		com.admin.order.db
-	}
-}
-
