@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+
+#left {
+	border: 1px solid;
+	margin: 20%;
+	float: left;
+	width: 300px;
+	height: 600px;
+}
+
+#right {
+	border: 1px solid;
+	float: right;
+	width: 232px;
+	height: 130px;
+}
+
+.img1 {
+	float: left;
+	list-style: none;
+	display
+}
+
+.img2 {
+	clear: both;
+	list-style: none;
+	margin-left: 5%;
+}
+
+.img3 {
+  	list-style: none;
+}
+
+.img4 {
+	clear: both;
+	list-style: none;
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="food_v3.0(mem_show_gr)">
+        <property name="context-root" value="food_v3.0(mem_show_gr)"/>
+    </wb-module>
+</project-modules>

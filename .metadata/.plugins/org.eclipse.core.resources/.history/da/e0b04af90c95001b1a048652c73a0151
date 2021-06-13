@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="관리자 상품등록&amp;삭제&amp;상품이미지 수정본">
+        <property name="context-root" value="관리자_상품등록&amp;삭제&amp;상품이미지_수정본"/>
+        <property name="java-output-path" value="/관리자 상품등록&amp;삭제&amp;상품이미지 수정본/build/classes"/>
+    </wb-module>
+</project-modules>
