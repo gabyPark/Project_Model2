@@ -1,0 +1,187 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.Set"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="com.goodres.db.GoodResDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.goodres.db.GoodResBoardBean"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>FOOD</title>
+<link rel="stylesheet" type="text/css" href="./cjkit/web/css/common.css?20200924090025">
+<link rel="stylesheet" type="text/css" href="https://www.cjcookit.com/cjkit/web/css/main.css?20200924090025">
+<link rel="stylesheet" type="text/css" href="./cjkit/web/css/goodResCSS/goodress_main.css">
+</head>
+<body>
+
+	<jsp:include page="../inc/header.jsp"/>
+	
+	<%
+		
+		GoodResBoardBean grbb = new GoodResBoardBean();
+		
+		List<GoodResBoardBean> goodResList = new ArrayList<GoodResBoardBean>();
+		List<GoodResBoardBean> goodResTypeList = new ArrayList<GoodResBoardBean>();
+	
+		String[] gu1 = {"강서구","금정구","기장군","남구","동구","동래구",
+						"부산진구","북구","사상구","사하구","서구","수영구",
+						"연제구","영도구","중구","해운대구"};
+		
+		String [] type1 = {"카페","밀면","국밥"};
+		String [] type2 = {"중식","스시","정식"};
+		String [] type3 = {"베이커리","만두","돈까스"};
+		
+// 		List<GoodResBoardBean> GoodResList = grdao.getGoodResList();
+
+		HashMap<String, List<GoodResBoardBean>> totalList = new HashMap<>();
+		HashMap<String, List<GoodResBoardBean>> totalTypeList = new HashMap<>();
+		
+		totalList = (HashMap) request.getAttribute("totalList");
+		totalTypeList = (HashMap) request.getAttribute("totalTypeList");
+		
+		System.out.println(totalTypeList);
+			
+ 		/* for(String gu : totalList.keySet()){ //저장된 key값 확인
+		    System.out.println("[Key]:" + gu + " [Value]:" + totalList.get(gu));
+		} 
+
+		for(String menu1 : totalMenuList.keySet()){ //저장된 key값 확인
+		    System.out.println("[Menu Key]:" + menu1 + " [Menu Value]:" + totalMenuList.get(menu1));
+		} */
+		
+		int idx = 0;
+		String b = "";
+		
+/* 		for(int i=0;i<gu1.length;i++){} */
+
+/* 			idx = (int) (Math.random() * 6);
+			b = gu1[idx];
+			goodResList = totalList.get(b);
+			grbb = goodResList.get(0); */
+		
+	%>
+		 
+ 	<div class="div_gr_main">
+		<div class="div_search">
+			<table class="div_search_table">
+				<tr>
+					<td><input class="div_search_input01" type="text" name="gr_input_search"></td>
+					<td><input class="div_search_input02" type="submit" name="gr_btn_search"></td>					
+				</tr>
+			</table>
+		</div>
+		
+		<div class="div_gr_list">
+			<div class="div_gr_list_span">부산 구 별 맛집 리스트</div>
+			<table class="div_gr_list_table">
+				<tr>
+					<td>
+					<%					
+						int[] save = new int[3];		
+						
+						for(int i=0; i<save.length; i++) {						
+							save[i] = (int)(Math.random()*16);
+							
+							for(int j=0; j<i; j++) {
+								if(save[i] == save[j]) {
+									i--;
+									break;
+								}
+							}						
+						}
+						
+						for(int i=0;i<3;i++) {
+							goodResList = totalList.get(gu1[save[i]]);
+							grbb = goodResList.get(0);
+					%>
+					<!-- 1번째 사진 -->
+					<a href="./GoodResList.gr?gu=<%=grbb.getF_gr_gu() %>">
+					<img src="<%=grbb.getF_gr_img() %>">
+					</a>
+					</td>
+					<td class="gr_gu_name">
+						<%=grbb.getF_gr_gu() %> 맛집
+ 					</td>
+ 					<%
+ 						}
+					%>					
+				</tr>
+			</table>
+			<hr>
+		</div>
+		
+		<div class="div_gr_list2">
+			<span class="div_gr_list_span2">평점이 높은 인기 식당</span>
+			<table class="div_gr_list_table2">
+				<tr>
+<!-- 					<td><img src="./cjkit/web/images/goodRes_img/testImg1.png"></td>
+					<td><img src="./cjkit/web/images/goodRes_img/testImg2.png"></td>
+					<td><img src="./cjkit/web/images/goodRes_img/testImg3.png"></td> -->
+				</tr>
+			</table>
+			<hr>
+		</div>
+		
+		<div class="div_gr_list3">
+			<span class="div_gr_list_span3">메뉴별 인기 맛집</span>
+			<table class="div_gr_list_table3">
+				<tr>
+					<td>
+					<!-- <img src="./cjkit/web/images/goodRes_img/testImg1.png">  --> 
+					<%
+						idx = (int) (Math.random() * 3);
+						b = type1[idx];  
+						goodResTypeList = totalTypeList.get(b);
+						grbb = goodResTypeList.get(0);
+					%>
+
+					<!-- 1번째 사진 -->
+					<a href="./GoodsResList.gr?type=<%=grbb.getF_gr_foodtype() %>">
+					<img src="<%=grbb.getF_gr_img() %>">
+					</a>
+							<%=grbb.getF_gr_foodtype() %> 맛집 
+ 					</td>
+					
+					<td>
+					<%
+						idx = (int) (Math.random() * 3);
+						b = type2[idx];  
+						goodResTypeList = totalTypeList.get(b);
+						grbb = goodResTypeList.get(0);
+					%>
+
+					<!-- 2번째 사진 -->
+					<a href="./GoodsResList.gr?type=<%=grbb.getF_gr_foodtype() %>">
+					<img src="<%=grbb.getF_gr_img() %>">
+					</a>
+							<%=grbb.getF_gr_foodtype() %> 맛집 
+ 					</td>					
+
+					<td>
+					<%
+						idx = (int) (Math.random() * 3);
+						b = type3[idx];  
+						goodResTypeList = totalTypeList.get(b);
+						grbb = goodResTypeList.get(0);
+					%>
+
+					<!-- 3번째 사진 -->
+					<a href="./GoodsResList.gr?type=<%=grbb.getF_gr_foodtype() %>">
+					<img src="<%=grbb.getF_gr_img() %>">
+					</a>					
+							<%=grbb.getF_gr_foodtype() %> 맛집 
+					</td>
+				</tr>
+				
+			</table>
+			<hr>
+		</div>
+	</div>
+
+	<jsp:include page="../inc/footer.jsp"/>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 2 elements to &apos;icon.png&apos;&#x0D;&#x0A;- Original project: &apos;food_v2.8(mem_show)&apos;&#x0D;&#x0A;- Destination element: &apos;icon.png&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     logoD.png&#x0D;&#x0A;     logoC.png&#x0D;&#x0A;- Update references to refactored element" description="Move files" element1="WebContent/cjkit/web/images/cook_img/logoD.png" element2="WebContent/cjkit/web/images/cook_img/logoC.png" files="2" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1618133964632" target="/food_v3.0(mem_show_gr)/WebContent/member/icon.png" units="0" version="1.0"/>
+</session>
